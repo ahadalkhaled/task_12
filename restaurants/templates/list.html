@@ -4,9 +4,22 @@
 
 {% block content %}
 <br>
+
+ <form action="{% url 'restaurant-list' %}" method="GET" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" name='Q' placeholder="Search" value="{{request.GET.q}}">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
+<br>
+<br>
+
 <div class="row">
+
+
     {% for restaurant in restaurants %}
     <div class="col-md-4">
+     
         <div class="card my-card">
           {% if restaurant.logo %}
             <img class="card-img-top" src="{{restaurant.logo.url}}" alt="Hey Noob, look at me...">
